@@ -19,4 +19,14 @@ describe("CatGallery (unit)", () => {
     rerender(<CatGallery count={4} />);
     expect(screen.getAllByLabelText("cat")).toHaveLength(4);
   });
+
+  test("shows overload message at count is above 10", () => {
+    render(<CatGallery count={10} />);
+    expect(screen.getByRole("alert")).toHaveTextContent("Cat Overload!");
+  });
+
+  test("no overload message below 10", () => {
+    render(<CatGallery count={9} />);
+    expect(screen.queryByRole("alert")).toBeNull();
+  });
 });
