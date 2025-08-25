@@ -24,11 +24,31 @@ describe("CatCounter (unit)", () => {
     expect(screen.getByText(/Cats spotted:/i)).toHaveTextContent("1");
   });
 
+  test("calls onRemove when 'Remove cat' is clicked", () => {
+    const onRemove = vi.fn();
+    render(
+      <CatCounter count={1} onAdd={noop} onRemove={onRemove} onReset={noop} />
+    );
+
+    const removeBtn = screen.getByRole("button", { name: /remove cat/i });
+    fireEvent.click(removeBtn);
+
+    expect(onRemove).toHaveBeenCalledTimes(1);
+  });
+
   test("disable remove button when count is 0", () => {
     render(
       <CatCounter count={0} onAdd={noop} onRemove={noop} onReset={noop} />
     );
     const removeBtn = screen.getByRole("button", { name: /remove cat/i });
     expect(removeBtn).toBeDisabled();
+  });
+
+  test("enable remove button when count is above 0", () => {
+    render(
+      <CatCounter count={1} onAdd={noop} onRemove={noop} onReset={noop} />
+    );
+    const removeBtn = screen.getByRole("button", { name: /remove cat/i });
+    expect(removeBtn).toBeEnabled();
   });
 });
