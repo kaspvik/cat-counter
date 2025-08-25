@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CatCounter from "./components/CatCounter";
 import CatGallery from "./components/CatGallery";
-import city from "/src/assets/Plomari.png"; // ✅ importera bakgrunden
+import city from "/src/assets/Plomari.png";
 
 export default function App() {
   const [count, setCount] = useState<number>(0);

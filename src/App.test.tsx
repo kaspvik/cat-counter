@@ -7,7 +7,7 @@ const get = () => {
   const remove = screen.getByRole("button", { name: /remove cat/i });
   const reset = screen.getByRole("button", { name: /reset/i });
   const countText = () => screen.getByText(/Cats spotted:/i);
-  const cats = () => screen.queryAllByLabelText("cat");
+  const cats = () => screen.queryAllByAltText("cat");
   return { add, remove, reset, countText, cats };
 };
 
