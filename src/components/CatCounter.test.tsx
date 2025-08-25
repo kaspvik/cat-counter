@@ -1,10 +1,22 @@
-import { render, screen } from "@testing-library/react";
-import { describe, expect, test } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, expect, test, vi } from "vitest";
 import CatCounter from "./CatCounter";
 
 const noop = () => {};
 
 describe("CatCounter (unit)", () => {
+  test("calls onAdd when 'Add cat' is clicked", () => {
+    const onAdd = vi.fn();
+    render(
+      <CatCounter count={1} onAdd={onAdd} onRemove={noop} onReset={noop} />
+    );
+
+    const addBtn = screen.getByRole("button", { name: /add cat/i });
+    fireEvent.click(addBtn);
+
+    expect(onAdd).toHaveBeenCalledTimes(1);
+  });
+
   test("renders current count", () => {
     render(
       <CatCounter count={1} onAdd={noop} onRemove={noop} onReset={noop} />
