@@ -11,4 +11,12 @@ describe("CatCounter (unit)", () => {
     );
     expect(screen.getByText(/Cats spotted:/i)).toHaveTextContent("1");
   });
+
+  test("disable remove button when count is 0", () => {
+    render(
+      <CatCounter count={0} onAdd={noop} onRemove={noop} onReset={noop} />
+    );
+    const removeBtn = screen.getByRole("button", { name: /remove cat/i });
+    expect(removeBtn).toBeDisabled();
+  });
 });
