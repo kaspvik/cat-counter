@@ -36,19 +36,15 @@ describe("CatCounter (unit)", () => {
     expect(onRemove).toHaveBeenCalledTimes(1);
   });
 
-  test("disable remove button when count is 0", () => {
+  test.each([
+    { count: 0, disabled: true, label: "disabled when count is 0" },
+    { count: 1, disabled: false, label: "enabled when count is above 0" },
+  ])("remove button is $label", ({ count, disabled }) => {
     render(
-      <CatCounter count={0} onAdd={noop} onRemove={noop} onReset={noop} />
+      <CatCounter count={count} onAdd={noop} onRemove={noop} onReset={noop} />
     );
     const removeBtn = screen.getByRole("button", { name: /remove cat/i });
-    expect(removeBtn).toBeDisabled();
-  });
-
-  test("enable remove button when count is above 0", () => {
-    render(
-      <CatCounter count={1} onAdd={noop} onRemove={noop} onReset={noop} />
-    );
-    const removeBtn = screen.getByRole("button", { name: /remove cat/i });
-    expect(removeBtn).toBeEnabled();
+    if (disabled) expect(removeBtn).toBeDisabled();
+    else expect(removeBtn).toBeEnabled();
   });
 });
