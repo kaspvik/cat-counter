@@ -32,6 +32,7 @@ export default function CatCounter({
         style={{
           margin: 0,
           textAlign: "center",
+          fontFamily: "Barriecito",
           fontSize: "1.25rem",
           fontWeight: 600,
           padding: "12px 20px",
@@ -53,6 +54,7 @@ export default function CatCounter({
           style={{
             width: "100%",
             padding: "12px 16px",
+            fontFamily: "Barriecito",
             fontSize: "1.125rem",
             fontWeight: 700,
             borderRadius: 10,
@@ -69,6 +71,7 @@ export default function CatCounter({
               flex: 1,
               padding: "10px 12px",
               borderRadius: 10,
+              fontFamily: "Barriecito",
               fontWeight: 600,
               backgroundColor: "rgba(255, 255, 255, 0.6)",
             }}>
@@ -80,6 +83,7 @@ export default function CatCounter({
               flex: 1,
               padding: "10px 12px",
               borderRadius: 10,
+              fontFamily: "Barriecito",
               fontWeight: 600,
               backgroundColor: "rgba(255, 255, 255, 0.6)",
             }}>

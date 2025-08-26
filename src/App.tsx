@@ -11,7 +11,17 @@ export default function App() {
 
   return (
     <main>
-      <h1>Cat Counter</h1>
+      <h1
+        style={{
+          textAlign: "center",
+          margin: 4,
+          marginBottom: 10,
+          fontSize: "4.5rem",
+          fontWeight: "700",
+          fontFamily: "Barriecito",
+        }}>
+        Cat Counter
+      </h1>
 
       <div
         aria-label="city"
