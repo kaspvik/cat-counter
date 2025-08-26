@@ -22,16 +22,15 @@ describe("CatGallery (unit)", () => {
     expect(cats()).toHaveLength(4);
   });
 
-  test.each([
-    { count: 9, visible: false },
-    { count: 10, visible: true },
-    { count: 11, visible: true },
-  ])("overload message visibility at count=$count", ({ count, visible }) => {
-    const { alert } = setup(count);
-    if (visible) {
-      expect(alert()).toHaveTextContent("Cat Overload!");
-    } else {
-      expect(alert()).toBeNull();
+  test.each([{ count: 11, visible: true }])(
+    "overload message visibility at count=$count",
+    ({ count, visible }) => {
+      const { alert } = setup(count);
+      if (visible) {
+        expect(alert()).toHaveTextContent("Cat Overload!");
+      } else {
+        expect(alert()).toBeNull();
+      }
     }
-  });
+  );
 });

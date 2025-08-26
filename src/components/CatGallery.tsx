@@ -10,12 +10,27 @@ const catImages = Object.values(
 ).sort() as string[];
 
 export default function CatGallery({ count }: Props) {
-  const overload = count >= 10;
+  const overload = count >= 11;
   const max = Math.min(count, catImages.length, CAT_LAYOUT.length);
 
   return (
     <section aria-label="cat-gallery">
-      {overload && <p role="alert">Cat Overload!</p>}
+      {overload && (
+        <p
+          role="alert"
+          style={{
+            position: "absolute",
+            left: 160,
+            top: 60,
+            textAlign: "center",
+            margin: 4,
+            fontSize: "2rem",
+            fontWeight: "700",
+            fontFamily: "Barriecito",
+          }}>
+          Cat Overload!
+        </p>
+      )}
 
       <div>
         {Array.from({ length: max }).map((_, i) => {
