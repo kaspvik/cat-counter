@@ -7,7 +7,7 @@ export type CatPlacement = {
 };
 
 export const CAT_LAYOUT: CatPlacement[] = [
-  { top: 77, left: 48, width: 12, z: 2 },
+  { top: 47, left: 78.7, width: 32, rotate: -90, z: 2 },
   { top: 79, left: 5, width: 12 },
   { top: 37, left: 30, width: 9, rotate: 10 },
   { top: 38, left: 62, width: 6, z: 3 },
