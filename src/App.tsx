@@ -2,6 +2,7 @@ import { useState } from "react";
 import CatCounter from "./components/CatCounter";
 import CatGallery from "./components/CatGallery";
 import city from "/src/assets/Plomari.png";
+import cityGif from "/src/assets/greek.gif";
 
 export default function App() {
   const [count, setCount] = useState<number>(0);
@@ -37,6 +38,24 @@ export default function App() {
           overflow: "hidden",
           marginInline: "auto",
         }}>
+        <div>
+          <img
+            src={cityGif}
+            alt="Greek flag waving in the wind"
+            aria-hidden
+            draggable={false}
+            style={{
+              position: "absolute",
+              top: "35.8%",
+              left: "63.6%",
+              width: "9.2%",
+              height: "auto",
+              transform: "translate(-50%, -50%)",
+              objectFit: "contain",
+              pointerEvents: "none",
+            }}
+          />
+        </div>
         <CatCounter
           count={count}
           onAdd={add}
